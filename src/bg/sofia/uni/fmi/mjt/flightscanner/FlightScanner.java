@@ -38,7 +38,7 @@ public class FlightScanner implements FlightScannerAPI{
         if (!flights.containsKey(from)) {
             return new ArrayList<>();
         }
-        return ;
+        return new ArrayList<>();
     }
 
     @Override

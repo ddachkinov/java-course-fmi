@@ -19,7 +19,7 @@ public class RegularFlight implements Flight {
     private Integer totalCapacity;
     private Set<Passenger> passengerSet;
 
-    public RegularFlight(String flightId, Airport from, Airport to, int totalCapacity) {
+    private RegularFlight(String flightId, Airport from, Airport to, int totalCapacity) {
         this.to = to;
         this.from = from;
         this.flightId = flightId;

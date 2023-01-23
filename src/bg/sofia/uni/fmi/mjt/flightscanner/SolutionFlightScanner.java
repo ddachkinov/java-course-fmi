@@ -19,7 +19,8 @@ import java.util.Set;
 
 public class SolutionFlightScanner implements FlightScannerAPI {
 
-    private final Map<Airport, Set<Flight>> flights;
+//    private final Map<Airport, Set<Flight>> flights;
+    public final Map<Airport, Set<Flight>> flights;
 
     public SolutionFlightScanner() {
         this.flights = new HashMap<>();
