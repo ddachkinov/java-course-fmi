@@ -11,33 +11,33 @@ import java.util.Set;
 
 public class TestCollections {
 
+    private static Flight directToBali;
+
     public static void main(String[] args) {
 
-        Airport sofiAirport = new Airport("SOF");
-        Airport warsawAirport = new Airport("WAW");
+        Airport sofiAirport = new Airport("SOF", "Sunny");
+        Airport warsawAirport = new Airport("WAW", "Sunny");
 
 //        Flight toLon = RegularFlight.of("LON12", new Airport("LON"), new Airport("LON"), 200);
-        Flight toBali = RegularFlight.of("LOVE12", sofiAirport, new Airport("DEN"), 200);
-        Flight toLisbon = RegularFlight.of("WINE68", sofiAirport, new Airport("LIS"), 200);
-        Flight SOFBEL = RegularFlight.of("SCA23", sofiAirport, new Airport("BEL"), 200);
-        Flight BELWAW = RegularFlight.of("SCA233", new Airport("BEL"), warsawAirport, 200);
+        Flight directToBali = RegularFlight.of("LOVE12", sofiAirport, new Airport("DEN", "Sunny"), 200);
+        Flight sofiaToLisbon = RegularFlight.of("WINE68", sofiAirport, new Airport("LIS", "Sunny"), 200);
+        Flight sofiaToBelgrade = RegularFlight.of("SCA23", sofiAirport, new Airport("BEL", "Rainy"), 200);
+        Flight belgradeToWarsaw = RegularFlight.of("SCA233", new Airport("BEL", "Sunny"), warsawAirport, 200);
 
-//        Set<Flight> myFlights = Set.of(toBali, toLisbon, toBelgrade, SOFBEL, BELWAW);
+//        Set<Flight> todayFlights = Set.of(directToBali, sofiaToLisbon, sofiaToBelgrade, belgradeToLisbon);
 
         SolutionFlightScanner scanner = new SolutionFlightScanner();
 
-        scanner.add(toBali);
-        scanner.add(toLisbon);
-        scanner.add(SOFBEL);
-        scanner.add(BELWAW);
+        scanner.add(directToBali);
+        scanner.add(sofiaToLisbon);
+        scanner.add(sofiaToBelgrade);
+        scanner.add(belgradeToWarsaw);
 
-
-//        scanner.flights.keySet().forEach(key ->System.out.println( key + ": " + scanner.flights.get(key)));
 //        for (Map.Entry<Airport, Set<Flight>> airportWithFlights : scanner.flights.entrySet()) {
 //            System.out.println(airportWithFlights.getKey() + " " + airportWithFlights.getValue());
 //        }
 
-        List<Flight> readyFlightPlan = scanner.searchFlights(sofiAirport, toLisbon.getTo());
+        List<Flight> readyFlightPlan = scanner.searchFlights(sofiAirport, sofiaToLisbon.getTo());
 
         System.out.println(readyFlightPlan);
 
